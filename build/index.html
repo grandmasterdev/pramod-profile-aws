@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Pramod Portfolio Website - Created using React JS">
+  <meta name="keywords" content="2019, 2020, Portfolio, React">
+  <meta name="author" content="Pramod Jingade">
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="img/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="img/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="img/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="img/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="img/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="img/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="img/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png" />
+  <link rel="stylesheet" href="css/all.min.css" />
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/creativetimofficial/tailwind-starter-kit/compiled-tailwind.min.css" />
+  <link rel="stylesheet" href="css/custom.css" />
+  <title>Pramod Portfolio Site</title>
+</head>
+
+<body class="text-gray-800 antialiased">
+  <nav class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg">
+    <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
+      <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
+        <button
+          class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+          type="button" onclick="toggleNavbar('example-collapse-navbar')">
+          <i class="text-white fas fa-bars"></i>
+        </button>
+      </div>
+      <div class="fade-in lg:flex flex-grow items-center bg-white lg:bg-transparent lg:shadow-none hidden"
+        id="example-collapse-navbar">
+        <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
+          <li class="flex items-center">
+            <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+              href="https://www.facebook.com/pramod.jingade" target="_blank">
+              <i class="lg:text-gray-300 text-gray-500 fab fa-facebook text-lg leading-lg "></i><span
+                class="lg:hidden inline-block ml-2">Facebook Profile</span></a>
+          </li>
+          <li class="flex items-center">
+            <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+            href="https://twitter.com/avj2352" target="_blank"><i class="lg:text-gray-300 text-gray-500 fab fa-twitter text-lg leading-lg "></i><span
+                class="lg:hidden inline-block ml-2">Send me a Tweet!</span></a>
+          </li>
+          <li class="flex items-center">
+            <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+              href="https://github.com/avj2352" target="_blank"><i class="lg:text-gray-300 text-gray-500 fab fa-github text-lg leading-lg "></i><span
+                class="lg:hidden inline-block ml-2">Github Profile</span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <div class="relative pt-16 pb-32 flex content-center items-center justify-center" style="min-height: 75vh;">
+      <div class="absolute top-0 w-full h-full bg-center bg-cover">
+        <span id="blackOverlay" class="w-full h-full absolute opacity-75 bg-black"></span>
+      </div>
+      <div class="container relative mx-auto">
+        <div class="items-center flex flex-wrap overflow-hidden">
+          <div class="md:w-6/12 sm:w-12/12 px-4 ml-auto mr-auto">
+            <div class="fade-in pr-12">
+              <h1 class="text-white font-semibold text-3xl">
+                Designer, JS Fullstack Developer & Mentor
+              </h1>
+              <p class="mt-4 text-lg text-gray-300">
+                I design to make Web applications that are simple, scalable and reusable, and I love what I do.
+              </p>
+              <p class="mt-4 text-lg text-gray-300">
+                <a href="#about-me-section" class="nav-links">About Me</a>
+                <a href="#my-gallery" class="nav-links">Gallery</a>
+                <a href="#contact-me" class="nav-links">Contact Me</a>
+              </p>
+            </div>
+          </div>
+          <!-- Animation -->
+          <div id="animationDiv" class="md:w-6/12 sm:w-12/12">
+          </div>
+        </div>
+      </div>
+      <div class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden"
+        style="height: 70px; transform: translateZ(0px);">
+      </div>
+    </div>
+    <section class="pb-20 bg-gray-300 -mt-24">
+      <div class="container mx-auto px-4">
+        <div class="skill-cards-collection flex flex-wrap">
+          <div class="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
+            <div
+              class="fade-in first relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+              <div class="px-4 py-5 flex-auto">
+                <div
+                  class="text-white p-2 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400">
+                  <img src="img/angular.png" />
+                </div>
+                <h6 class="text-xl font-semibold">Angular JS / Angular</h6>
+                <p class="mt-2 mb-4 text-gray-600">
+                  Certified Angular Developer. Started my web development career with
+                  Angular JS v1.4 - v1.7, then moved to Angular v4+
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="w-full md:w-4/12 px-4 text-center">
+            <div
+              class="fade-in second relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+              <div class="px-4 py-5 flex-auto">
+                <div
+                  class="text-white p-1 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-gray-700">
+                  <img src="img/react-logo.png" />
+                </div>
+                <h6 class="text-xl font-semibold">React JS</h6>
+                <p class="mt-2 mb-4 text-gray-600">
+                  Worked on 20+ freelance projects built using React.
+                  Working on React Library since v14.x onwards
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="pt-6 w-full md:w-4/12 px-4 text-center">
+            <div
+              class="fade-in third relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+              <div class="px-4 py-5 flex-auto">
+                <div
+                  class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-green-200">
+                  <img src="img/node.png" />
+                </div>
+                <h6 class="text-xl font-semibold">Node JS Developer</h6>
+                <p class="mt-2 mb-4 text-gray-600">
+                  Node JS Master class certified. Built many applications using.
+                  Node + MongoDB, Nest JS Server side frameworks.
+
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="about-me-section" class="flex flex-wrap items-center mt-32">
+          <div class="w-full md:w-5/12 px-4 mr-auto ml-auto">
+            <div class="flex flex-wrap">
+              <div
+                class="text-gray-600 mr-4 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-gray-100">
+                <i class="fas fa-user-friends text-xl"></i>
+              </div>
+              <h3 class="text-3xl mt-2 mb-2 font-semibold leading-normal">
+                About Me
+              </h3>
+            </div>
+            <p class="text-lg font-light leading-relaxed mt-4 mb-4 text-gray-700">
+              Hi, I am Pramod. Fullstack developer from Banalore, India.
+              I have 9+ years of experience in the field of Web design and development.
+              Worked in Airline Industry & Health Care sector comprising Architecture,
+              Supervisory & Project Management skills.
+            </p>
+            <p class="text-lg font-light leading-relaxed mt-0 mb-4 text-gray-700">
+              I also have experience with Typescript and have worked on the following frameworks:
+              Angular JS 1.5.x, Angular2, React 16.5+, Vue 2, Node (v8+) Server side programming.
+            </p>
+            <a href="#" class="inline-block font-bold text-gray-800 py-4">Currently working as Senior Software
+              Technologist @ PHILIPS</a>
+          </div>
+          <div class="w-full md:w-4/12 px-4 mr-auto ml-auto">
+            <div
+              class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-pink-600">
+              <img alt="..."
+                src="https://media-exp2.licdn.com/media-proxy/ext?w=800&h=800&hash=3D0M6kAl9M3dPwtkuE2PfQko2QA%3D&ora=1%2CaFBCTXdkRmpGL2lvQUFBPQ%2CxAVta5g-0R67hwMb0Q8k9OCCokL_4k5CV4HZAGn-H3D5osqBZXLue8HZerOkuw5JJWxQzk0vLLD2BGGyVtChdtusOYQk2sOKWY6-dgBJahM7lWhB9Zw4NhcwtJeyFqb9YT1a2ulZaRCQfbP5YA0JLBEt3-2tHKXyGXwe706aWvDoNcATCp9X3ot4k21lkw"
+                class="w-full align-middle rounded-t-lg" />
+              <blockquote class="relative p-8 mb-4">
+                <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 583 95"
+                  class="absolute left-0 w-full block" style="height: 95px; top: -94px;">
+                  <polygon points="-30,95 583,95 583,65" class="text-pink-600 fill-current"></polygon>
+                </svg>
+                <h4 class="text-xl font-bold text-white">
+                  PHILIPS Innovation Campus
+                </h4>
+                <p class="text-md font-light mt-2 text-white">
+                  The heart of Philips is its people and within the Bengaluru center
+                  of more than 2500 employees - representing a multitude of disciplines
+                  and perspectives.
+                  <a class="inline-link"
+                    href="https://www.philips.co.in/a-w/about-philips/philips-innovation-center.html"
+                    target="_blank">About the Company</a>
+                </p>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="relative py-20">
+      <div class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
+        style="height: 80px; transform: translateZ(0px);">
+      </div>
+      <div class="container mx-auto px-4">
+        <div class="items-center flex flex-wrap">
+          <div class="w-full md:w-4/12 sm:w-9/12 ml-auto mr-auto px-2">
+            <img alt="..." class="max-w-full rounded-lg shadow-lg" src="./img/developer.svg" />
+          </div>
+          <div class="w-full flex md:w-5/12 sm:w-10/12 ml-auto mr-auto px-4">
+            <div class="md:pr-12 my-4">
+              <div class="flex flex-wrap">
+                <div
+                  class="mr-4 bg-gray-300 text-gray-700 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full">
+                  <i class="fas fa-rocket text-xl"></i>
+                </div>
+                <h3 class="mt-2 text-3xl font-semibold">Skills &amp; Interests</h3>
+              </div>
+              <p class="mt-4 text-lg leading-relaxed text-gray-600">
+                I am an avid developer for all things Javascript.
+                I like exploring new areas in the field of Web design.
+                When I am not working, I like to go on long walks,
+                sketch, play Guitar / Ukulele and goof around with my son.
+              </p>
+              <ul class="list-none mt-6">
+                <li class="py-2">
+                  <div class="flex items-center">
+                    <div>
+                      <span
+                        class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3"><i
+                          class="fas fa-fingerprint"></i></span>
+                    </div>
+                    <div>
+                      <h4 class="text-gray-600">
+                        Programming abilities and proficiency in TypeScript.
+                      </h4>
+                    </div>
+                  </div>
+                </li>
+                <li class="py-2">
+                  <div class="flex items-center">
+                    <div>
+                      <span
+                        class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3"><i
+                          class="fab fa-html5"></i></span>
+                    </div>
+                    <div>
+                      <h4 class="text-gray-600">Proficiency in building creative HTML 5 designs</h4>
+                    </div>
+                  </div>
+                </li>
+                <li class="py-2">
+                  <div class="flex items-center">
+                    <div>
+                      <span
+                        class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3"><i
+                          class="far fa-paper-plane"></i></span>
+                    </div>
+                    <div>
+                      <h4 class="text-gray-600">Avid React, Typescript Developer</h4>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="my-gallery" class="pb-20 relative block bg-gray-900">
+      <div class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
+        style="height: 80px; transform: translateZ(0px);">
+      </div>
+      <div class="container mx-auto px-4 py-4 lg:pt-24 lg:pb-64">
+        <div class="flex flex-wrap text-center justify-center">
+
+          <div class="w-full lg:w-6/12 px-4">
+            <div class="flex flex-wrap justify-center">
+              <div
+                class="text-gray-900 mr-4 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-gray-100">
+                <i class="fas fa-medal text-xl"></i>
+              </div>
+              <h2 class="mt-2 text-4xl font-semibold text-white">My Projects</h2>
+            </div>
+            <p class="text-lg leading-relaxed mt-4 mb-4 text-gray-500">
+              Below is a collection of all my works. I have worked on NGO and non-profit
+              websites as well as free Wedding templates, open-source web-applications.
+            </p>
+          </div>
+        </div>
+        <!-- Gallery -->
+        <!-- Display Container (not part of component) START -->
+        <div id="galleryContainer"
+          class="flex flex-col align-center justify-center mx-auto md:w-6/12 my-8 px-4 lg:pt-12 lg:pb-24">
+          <!-- React Carousel Loader -->
+          <!-- end:React Carousel Loader -->
+          <!-- React Carousel Box -->
+          <!-- end:React Carousel Box -->
+        </div>
+        <!-- Display Container (not part of component) END -->
+        <!-- end:Gallery -->
+      </div>
+    </section>
+    <section class="relative block py-24 lg:pt-0 bg-gray-900">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-wrap justify-center lg:-mt-64 -mt-48">
+          <div class="w-full lg:w-6/12 px-4">
+            <h2 id="contact-me" class="mt-2 text-4xl font-semibold text-white">Contact Me</h2>
+            <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300">
+              <div class="flex-auto p-5 lg:p-10">
+                <h4 class="text-2xl font-semibold">Looking for a UI Developer?</h4>
+                <p class="leading-relaxed mt-1 mb-4 text-gray-600">
+                  Looking for a developer who can build both server side and UI web pages ?
+                  Please fill out this form
+                </p>
+                <div class="relative w-full mb-3 mt-8">
+                  <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="full-name">Full
+                    Name</label><input type="text"
+                    class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
+                    placeholder="Full Name" style="transition: all 0.15s ease 0s;" />
+                </div>
+                <div class="relative w-full mb-3">
+                  <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="email">Email</label><input
+                    type="email"
+                    class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
+                    placeholder="Email" style="transition: all 0.15s ease 0s;" />
+                </div>
+                <div class="relative w-full mb-3">
+                  <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
+                    for="message">Message</label><textarea rows="4" cols="80"
+                    class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
+                    placeholder="Type a message..."></textarea>
+                </div>
+                <div class="text-center mt-6">
+                  <button
+                    class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+                    type="button" style="transition: all 0.15s ease 0s;">
+                    Send Message
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="relative bg-gray-300 pt-8 pb-6">
+    <div class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
+      style="height: 80px; transform: translateZ(0px);">
+    </div>
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap">
+        <div class="w-full px-2">
+          <div class="flex flex-wrap items-top mb-6">
+            <div class="w-full lg:w-4/12 sm:w-6/12 px-4 ml-auto">
+              <span class="block uppercase text-gray-600 text-sm font-semibold mb-2">Useful Links</span>
+              <ul class="list-unstyled">
+                <li>
+                  <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
+                    href="https://tailwindcss.com/docs/display/#app">About Tailwind CSS</a>
+                </li>
+                <li>
+                  <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
+                    href="https://tailwindcomponents.com/">Tailwind CSS component Library</a>
+                </li>
+                <li>
+                  <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
+                    href="https://www.github.com/creativetimofficial">Github</a>
+                </li>
+                <li>
+                  <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
+                    href="https://www.creative-tim.com/bootstrap-themes/free">Free Products</a>
+                </li>
+              </ul>
+            </div>
+            <div class="w-full lg:w-4/12 sm:w-6/12 px-4">
+              <span class="block uppercase text-gray-600 text-sm font-semibold mb-2">Other Resources</span>
+              <ul class="list-unstyled">
+                <li>
+                  <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
+                    href="https://reactjs.org/docs/cdn-links.html">React JS CDN</a>
+                </li>
+                <li>
+                  <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
+                    href="https://creative-tim.com">Creativ Tim</a>
+                </li>
+                <li>
+                  <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
+                    href="http://greensock.com/get-started-js">GSAP Animation Library</a>
+                </li>
+                <li>
+                  <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
+                    href="https://babeljs.io/en/repl">Babel JSX to JS</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="my-6 border-gray-400" />
+      <div class="flex flex-wrap items-center md:justify-between justify-center">
+        <div class="w-full md:w-4/12 px-4 mx-auto text-center">
+          <div class="text-sm text-gray-600 font-semibold py-1">
+            &copy; 2020. Made using Tailwind CSS & React JS. <br />
+            Template by <a href="https://www.creative-tim.com" class="text-gray-600 hover:text-gray-900">Creative
+              Tim</a>. All
+            rights reserved
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-storage.js"></script>
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js"></script>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script crossorigin src="js/loader.js"></script>
+<script crossorigin src="js/gallery.js"></script>
+
+</html>

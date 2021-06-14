@@ -1,0 +1,392 @@
+#blackOverlay {
+    background: #780206;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #030933, #780206);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #030933, #780206);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.border-highlight {
+    border: 1px solid red;
+}
+
+a.nav-links {
+    display: inline-block;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+a.nav-links:nth-child(1) {
+    margin-left: 0;
+}
+
+a.nav-links:hover {
+    text-decoration: underline;
+}
+
+/*
+* SKILL CARDS
+*/
+.fade-in {
+    animation-name: hide, slideIn;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-delay: 0s, 0s;
+}
+
+
+.inline-link {
+    text-decoration: none;
+}
+
+.inline-link:hover {
+    text-decoration: underline;
+}
+
+.spinner {
+    border: 1px solid white;
+    min-height: 200px;
+}
+
+
+/*
+ * CIRCULAR SPINNER
+*/
+#animationDiv .circle-loader {
+    opacity: 0;
+}
+
+#animationDiv .circle-loader-success {
+    opacity: 1;
+}
+
+.circle-loader {
+    position: absolute;
+    width: 50%;
+    height: 90vh;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    transition: opacity 1s ease-in-out;
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -ms-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+}
+
+.circle-loader img {
+    width: 30%;
+    position: absolute;
+}
+
+.circle-loader img.blue-semi-circle {
+    animation: circle-spin infinite 120s linear;
+}
+
+.circle-loader img.blue-circle {
+    animation: circle-spin infinite 100s linear;
+}
+
+.circle-loader img.green-semi-circle {
+    animation: circle-spin infinite 90s linear;
+}
+
+.circle-loader img.green-circle {
+    animation: circle-spin infinite 80s linear;
+}
+
+.circle-loader img.yellow-semi-circle {
+    animation: circle-spin infinite 70s linear;
+}
+
+.circle-loader img.yellow-circle {
+    animation: circle-spin infinite 60s linear;
+}
+
+.circle-loader img.orange-semi-circle {
+    animation: circle-spin infinite 50s linear;
+}
+
+.circle-loader img.orange-circle {
+    animation: circle-spin infinite 40s linear;
+}
+
+.circle-loader img.red-semi-circle {
+    animation: circle-spin infinite 30s linear;
+}
+
+.circle-loader img.red-circle {
+    animation: circle-spin infinite 20s linear;
+}
+
+.circle-loader img.background-circle {
+    min-width: 500px;
+    max-width: 100%;
+    animation: circle-spin infinite 120s linear;
+}
+
+.circle-loader img.profile-image {
+    border: 5px solid rgba(101, 156, 200, 0.5);
+    display: block;
+    overflow: hidden;
+    border-radius: 50%;
+    width: 20%;
+    min-width: 100px;
+}
+
+/*
+* REUSABLE STYLES
+*/
+
+.custom-box-shadow {
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.custom-box-shadow-invert {
+    /* border: 5px solid rgba(211, 211, 211, 0.555); */
+    -webkit-box-shadow: 0px 3px 20px 3px rgba(105, 105, 105, 0.75);
+    -moz-box-shadow: 0px 3px 20px 3px rgba(105, 105, 105, 0.75);
+    box-shadow: 0px 3px 20px 3px rgba(105, 105, 105, 0.75);
+}
+
+
+/*
+* ANIMATION KEY-FRAMES
+*/
+
+@keyframes circle-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes hide {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 0
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        top: -100px;
+    }
+
+    100% {
+        opacity: 1;
+        top: 0px;
+    }
+}
+
+
+/*
+* MEDIA QUERIES
+*/
+
+@media (min-width: 240px) {
+    .circle-loader {
+        top: -110px;
+        left: 50%;
+        height: 50vh;
+    }
+
+    .circle-loader img {
+        width: 150px;
+    }
+}
+
+@media (min-width: 375px) {
+    .circle-loader {
+        top: -180px;
+        left: 50%;
+        height: 50vh;
+    }
+
+    .circle-loader img {
+        width: 150px;
+    }
+}
+
+@media (min-width: 400px) {
+    .circle-loader {
+        top: -200px;
+        left: 50%;
+        height: 50vh;
+    }
+
+    .circle-loader img {
+        width: 150px;
+    }
+}
+
+@media (min-width: 768px) {
+    .circle-loader {
+        top: -200%;
+        left: 350px;
+        height: 100vh;
+    }
+
+    .circle-loader img {
+        width: 60%;
+    }
+
+    .circle-loader img.profile-image {
+        width: 40%;
+        min-width: 100px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .circle-loader {
+        top: -100%;
+        left: 550px;
+        height: 100vh;
+    }
+
+    .circle-loader img {
+        width: 60%;
+    }
+
+    .circle-loader img.profile-image {
+        width: 40%;
+        min-width: 100px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .circle-loader {
+        top: -120%;        
+    }    
+}
+
+@media (min-width: 1480px) {
+    .circle-loader {
+        top: -210%;        
+    }    
+}
+
+/*
+* CAROUSEL LOADER
+*/
+
+
+.loader {
+    /* position: relative; */
+    /* top: 50%; */
+    /* left: 73%; */
+    /* border: 1px solid white; */
+    width: 100%;    
+    align-self: center;
+    display: flex;
+    justify-content: center;    
+}
+
+.dot {
+    width: 24px;
+    margin: 0 5px;
+    height: 24px;
+    background: #3ac;
+    border-radius: 100%;
+    display: inline-block;
+    animation: slide 1s infinite;
+}
+
+.dot:nth-child(1) {
+    animation-delay: 0.1s;
+    background: #32aacc;
+}
+
+.dot:nth-child(2) {
+    animation-delay: 0.2s;
+    background: #64aacc;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 0.3s;
+    background: #96aacc;
+}
+
+.dot:nth-child(4) {
+    animation-delay: 0.4s;
+    background: #c8aacc;
+}
+
+.dot:nth-child(5) {
+    animation-delay: 0.5s;
+    background: #faaacc;
+}
+
+@-moz-keyframes slide {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.3;
+        transform: scale(2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@-webkit-keyframes slide {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.3;
+        transform: scale(2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@-o-keyframes slide {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.3;
+        transform: scale(2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes slide {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.3;
+        transform: scale(2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
