@@ -16,3 +16,4 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
 ## Environment configuration
 
 - [Link Guide to AWS CDK Environments](https://docs.aws.amazon.com/cdk/latest/guide/environments.html)
+- [SSL Certificate Host issue](https://github.com/aws/aws-cdk/issues/9274)
