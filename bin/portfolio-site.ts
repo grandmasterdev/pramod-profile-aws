@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 import 'source-map-support/register';
 import * as cdk from '@aws-cdk/core';
-import { PortfolioSiteStack } from '../lib/portfolio-site-stack';
-import { PortfolioSiteDnsStack } from '../lib/portfolio-site-dns-stack';
+import { PortfolioSiteStack } from '../lib/site-config';
+import { PortfolioSiteDnsStack } from '../lib/dns-config';
 
 const app = new cdk.App();
 
@@ -15,7 +15,7 @@ const {hostedZone, certificate} = new PortfolioSiteDnsStack(app, 'PortfolioSiteD
   dnsName: domainNameApex
 });
 
-// 2. Stack to create - S3, CloudFront, Deploymentt
+// 2. Stack to create - S3, CloudFront, Deployment
 new PortfolioSiteStack(app, 'PortfolioSiteStack', {  
   env: { account: process.env.CDK_DEFAULT_ACCOUNT, region: 'us-east-1' },
   hostedZone,

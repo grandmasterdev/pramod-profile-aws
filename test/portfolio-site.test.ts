@@ -1,7 +1,6 @@
-import { expect as expectCDK, matchTemplate, MatchStyle } from '@aws-cdk/assert';
 import * as cdk from '@aws-cdk/core';
-import {PortfolioSiteStack} from '../lib/portfolio-site-stack';
-import {PortfolioSiteDnsStack} from '../lib/portfolio-site-dns-stack';
+import {PortfolioSiteStack} from '../lib/site-config';
+import {PortfolioSiteDnsStack} from '../lib/dns-config';
 import '@aws-cdk/assert/jest';
 
 

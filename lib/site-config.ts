@@ -7,6 +7,7 @@ import { ARecord, IPublicHostedZone, RecordTarget } from '@aws-cdk/aws-route53';
 import { ICertificate } from '@aws-cdk/aws-certificatemanager';
 import { S3Origin } from '@aws-cdk/aws-cloudfront-origins';
 import { CloudFrontTarget } from '@aws-cdk/aws-route53-targets';
+import { DomainRedirect } from './redirect';
 
 /**
  * PAJ - Stack to create
@@ -62,6 +63,13 @@ export class PortfolioSiteStack extends cdk.Stack {
       zone: props.hostedZone,
       target: RecordTarget.fromAlias(new CloudFrontTarget(cloudFront))
     });
+
+    // Handle http to https redirect - HARD redirect
+    new DomainRedirect(this, "PortfolioSiteRedirectHTTPS", {
+			zoneName: props.dnsName,
+			cert: props.certificate.certificateArn,
+			target: `https://${props.dnsName}`,
+		});
 
     // create output for S3 deployment process
     new cdk.CfnOutput(this, 'PortfolioSiteBucketNameExport', {
