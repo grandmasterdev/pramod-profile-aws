@@ -1,13 +1,16 @@
 import { Bucket } from '@aws-cdk/aws-s3';
 import { BucketDeployment, Source } from '@aws-cdk/aws-s3-deployment';
-import { CloudFrontWebDistribution, Distribution } from '@aws-cdk/aws-cloudfront';
+import { Distribution, LambdaEdgeEventType } from '@aws-cdk/aws-cloudfront';
 import * as cdk from '@aws-cdk/core';
+import { Code, Function, Runtime } from "@aws-cdk/aws-lambda";
+import { CompositePrincipal, Role, ServicePrincipal } from "@aws-cdk/aws-iam";
 import path from 'path';
 import { ARecord, IPublicHostedZone, RecordTarget } from '@aws-cdk/aws-route53';
 import { ICertificate } from '@aws-cdk/aws-certificatemanager';
 import { S3Origin } from '@aws-cdk/aws-cloudfront-origins';
 import { CloudFrontTarget } from '@aws-cdk/aws-route53-targets';
 import { DomainRedirect } from './redirect';
+import { EdgeFunction } from '@aws-cdk/aws-cloudfront/lib/experimental';
 
 /**
  * PAJ - Stack to create
@@ -37,22 +40,58 @@ export class PortfolioSiteStack extends cdk.Stack {
       destinationBucket: websiteBucket
     });
 
-    // create a simple cloudfront resource to get shorten URL
-    // const cloudFront1 = new CloudFrontWebDistribution(this, 'PortfolioSiteDistribution', {
-    //   originConfigs: [
-    //     {
-    //       s3OriginSource: {
-    //         s3BucketSource: websiteBucket
-    //       },
-    //       behaviors: [{ isDefaultBehavior: true }]
-    //     }
-    //   ]
-    // });
+    // Redirect Code Server Side
+    function makeRedirect (target: string): string {
+      return `
+      exports.handler = function(event, context, callback) {      
+        const redirectResponse = {
+          status: '301',
+          statusDescription: 'Moved Permanently',
+          headers: {
+            'location': [{
+                key: 'Location',
+                value: '${target}',
+            }],
+            'cache-control': [{
+                key: 'Cache-Control',
+                value: "max-age=3600"
+            }],
+          },
+      };
+      callback(null, redirectResponse);
+    };`.trim();
+    }    
+
+    const code = makeRedirect(`https://${props.dnsName}`);
+
+    const redirectFunction = new EdgeFunction(this, `redirect-lambda`, {
+      runtime: Runtime.NODEJS_12_X,
+      handler: "index.handler",
+      code: Code.fromInline(code),
+      role: new Role(this, `redirect-lambda-role`, {
+        assumedBy: new CompositePrincipal(
+          new ServicePrincipal("lambda.amazonaws.com"),
+          new ServicePrincipal("edgelambda.amazonaws.com"),
+        ),
+        managedPolicies: [
+          {
+            managedPolicyArn: "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+          },
+        ],
+      })
+    });
+
 
     // create cloudfront with domain + hosted zone + certificate
     const cloudFront = new Distribution(this, 'PortfolioSiteDistribution', {
       defaultBehavior: {
-        origin: new S3Origin(websiteBucket)
+        origin: new S3Origin(websiteBucket), 
+        edgeLambdas: [
+          {
+            functionVersion: redirectFunction.currentVersion,
+            eventType: LambdaEdgeEventType.ORIGIN_REQUEST,
+          }
+        ],
       },
       domainNames:[props.dnsName],
       certificate: props.certificate
@@ -63,13 +102,6 @@ export class PortfolioSiteStack extends cdk.Stack {
       zone: props.hostedZone,
       target: RecordTarget.fromAlias(new CloudFrontTarget(cloudFront))
     });
-
-    // Handle http to https redirect - HARD redirect
-    new DomainRedirect(this, "PortfolioSiteRedirectHTTPS", {
-			zoneName: props.dnsName,
-			cert: props.certificate.certificateArn,
-			target: `https://${props.dnsName}`,
-		});
 
     // create output for S3 deployment process
     new cdk.CfnOutput(this, 'PortfolioSiteBucketNameExport', {
