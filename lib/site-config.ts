@@ -9,7 +9,6 @@ import { ARecord, IPublicHostedZone, RecordTarget } from '@aws-cdk/aws-route53';
 import { ICertificate } from '@aws-cdk/aws-certificatemanager';
 import { S3Origin } from '@aws-cdk/aws-cloudfront-origins';
 import { CloudFrontTarget } from '@aws-cdk/aws-route53-targets';
-import { DomainRedirect } from './redirect';
 import { EdgeFunction } from '@aws-cdk/aws-cloudfront/lib/experimental';
 
 /**
