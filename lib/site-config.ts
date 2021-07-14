@@ -1,6 +1,6 @@
 import { Bucket } from '@aws-cdk/aws-s3';
 import { BucketDeployment, Source } from '@aws-cdk/aws-s3-deployment';
-import { Distribution, LambdaEdgeEventType } from '@aws-cdk/aws-cloudfront';
+import { Distribution, HttpVersion, LambdaEdgeEventType, ViewerProtocolPolicy } from '@aws-cdk/aws-cloudfront';
 import * as cdk from '@aws-cdk/core';
 import { Code, Function, Runtime } from "@aws-cdk/aws-lambda";
 import { CompositePrincipal, Role, ServicePrincipal } from "@aws-cdk/aws-iam";
@@ -91,9 +91,11 @@ export class PortfolioSiteStack extends cdk.Stack {
             eventType: LambdaEdgeEventType.ORIGIN_REQUEST,
           }
         ],
+        viewerProtocolPolicy: ViewerProtocolPolicy.REDIRECT_TO_HTTPS
       },
       domainNames:[props.dnsName],
-      certificate: props.certificate
+      certificate: props.certificate,
+      httpVersion: HttpVersion.HTTP2
     });
 
     // create ARecord to point cloudfront to dns
